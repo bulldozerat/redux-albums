@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+
+// Store
 import { connect } from 'react-redux';
 import { buyCake } from '../redux';
 

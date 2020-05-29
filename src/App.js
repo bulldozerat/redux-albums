@@ -1,6 +1,10 @@
 import React from 'react';
+
+// Store
 import { Provider } from 'react-redux';
 import store from './redux/store';
+
+// Components
 import CakeContainer from './components/CakeContainer';
 
 function App() {
