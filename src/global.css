@@ -5,8 +5,13 @@ html {
 
 body {
   box-sizing: border-box;
-  margin: 0;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.site-wrapper {
+  margin: 1rem auto;
+  max-width: 120rem;
+  background: #f7f7f7;
 }
