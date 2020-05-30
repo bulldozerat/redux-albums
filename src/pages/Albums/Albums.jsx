@@ -1,19 +1,36 @@
 import React, { useEffect } from 'react';
 
-const Albums = () => {
-  useEffect(() => {
-    fetchAlbumbsData();
-  }, []);
+// Store
+import { connect } from 'react-redux';
+import { fetchAlbums } from '../../redux';
 
-  const fetchAlbumbsData = async () => {
-    await fetch('https://jsonplaceholder.typicode.com/photos')
-      .then(response => response.json())
-      .then(data => console.log(data));
-  };
+const Albums = ({ albums, error, loading, fetchAlbumsCall }) => {
+  useEffect(
+    () => {
+      fetchAlbumsCall();
+    },
+    [fetchAlbumsCall]
+  );
 
   return <h1>123</h1>;
 };
 
-Albums.propTypes = {};
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchAlbumsCall: () => dispatch(fetchAlbums())
+  };
+};
 
-export default Albums;
+const mapStateToProps = state => ({
+  // albums: state.albums.items,
+  // loading: state.albums.loading,
+  // error: state.albums.error
+  albums: '',
+  loading: '',
+  error: ''
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Albums);

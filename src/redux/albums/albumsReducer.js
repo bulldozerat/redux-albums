@@ -1,16 +1,35 @@
-import { NORMALISE_ALBUMS_DATA } from './albumsTypes';
+import { FETCH_ALBUMS_BEGIN, FETCH_ALBUMS_SUCCESS, FETCH_ALBUMS_FAILURE } from './albumsTypes';
 
-const initialState = [{}];
+const initialState = {
+  albums: [],
+  loading: false,
+  error: null
+};
 
 const albumsReducer = (state = initialState, action) => {
-  console.log('action.payload: ', action.payload);
-  console.log('state: ', state);
-
   switch (action.type) {
-    case NORMALISE_ALBUMS_DATA:
+    case FETCH_ALBUMS_BEGIN:
       return {
-        ...state
+        ...state,
+        loading: true,
+        error: null
       };
+
+    case FETCH_ALBUMS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        albums: action.payload
+      };
+
+    case FETCH_ALBUMS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+        albums: []
+      };
+
     default:
       return state;
   }

@@ -5,7 +5,6 @@ const initialState = {
 };
 
 const cakeReducer = (state = initialState, action) => {
-  console.log('action.payload: ', action.payload);
   switch (action.type) {
     case BUY_CAKE:
       return {
