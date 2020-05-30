@@ -1,4 +1,10 @@
-import { FETCH_ALBUMS_BEGIN, FETCH_ALBUMS_SUCCESS, FETCH_ALBUMS_FAILURE, CHANGE_SELECTED_ALBUM } from './albumsTypes';
+import {
+  FETCH_ALBUMS_BEGIN,
+  FETCH_ALBUMS_SUCCESS,
+  FETCH_ALBUMS_FAILURE,
+  CHANGE_SELECTED_ALBUM,
+  ADD_TO_FAVOURITES
+} from './albumsTypes';
 import { normaliseAlbumsData } from '../../util/helperFunctions';
 
 export const fetchAlbums = () => async dispatch => {
@@ -31,5 +37,12 @@ export const changeSelectedAlbum = albumId => {
   return {
     type: CHANGE_SELECTED_ALBUM,
     payload: albumId
+  };
+};
+
+export const addToFavourites = album => {
+  return {
+    type: ADD_TO_FAVOURITES,
+    payload: album
   };
 };

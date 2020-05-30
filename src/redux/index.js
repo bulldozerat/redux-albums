@@ -3,5 +3,6 @@ export {
   fetchAlbumsBegin,
   fetchAlbumsSuccess,
   fetchAlbumsFailure,
-  changeSelectedAlbum
+  changeSelectedAlbum,
+  addToFavourites
 } from './albums/albumsActions';
