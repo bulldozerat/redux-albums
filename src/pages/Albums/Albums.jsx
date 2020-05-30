@@ -4,13 +4,16 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchAlbums } from '../../redux';
 
-const Albums = ({ albums, error, loading, fetchAlbumsCall }) => {
+const Albums = ({ albumsData, error, loading, fetchAlbumsCall }) => {
   useEffect(
     () => {
       fetchAlbumsCall();
     },
     [fetchAlbumsCall]
   );
+
+  if (error) return <div>Error!</div>;
+  if (loading) return <div>Loading...!</div>;
 
   return <h1>123</h1>;
 };
@@ -22,12 +25,9 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => ({
-  // albums: state.albums.items,
-  // loading: state.albums.loading,
-  // error: state.albums.error
-  albums: '',
-  loading: '',
-  error: ''
+  albumsData: state.albums.albumsData,
+  loading: state.albums.loading,
+  error: state.albums.error
 });
 
 export default connect(

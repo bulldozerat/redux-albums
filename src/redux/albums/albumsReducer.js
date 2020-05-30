@@ -1,7 +1,7 @@
 import { FETCH_ALBUMS_BEGIN, FETCH_ALBUMS_SUCCESS, FETCH_ALBUMS_FAILURE } from './albumsTypes';
 
 const initialState = {
-  albums: [],
+  albumsData: [],
   loading: false,
   error: null
 };
@@ -19,7 +19,7 @@ const albumsReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        albums: action.payload
+        albumsData: action.payload
       };
 
     case FETCH_ALBUMS_FAILURE:
@@ -27,7 +27,7 @@ const albumsReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: action.payload.error,
-        albums: []
+        albumsData: []
       };
 
     default:
