@@ -15,7 +15,17 @@ const Albums = ({ albumsData, error, loading, fetchAlbumsCall }) => {
   if (error) return <div>Error!</div>;
   if (loading) return <div>Loading...!</div>;
 
-  return <h1>123</h1>;
+  return (
+    <>
+      <h1>All albums</h1>
+      {console.log('albumsData: ', albumsData)}
+      {albumsData &&
+        Object.keys(albumsData).map(albumNumber => {
+          console.log(albumsData[albumNumber]);
+          return <div>Album Number {albumNumber}</div>;
+        })}
+    </>
+  );
 };
 
 const mapDispatchToProps = dispatch => {
@@ -24,11 +34,15 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const mapStateToProps = state => ({
-  albumsData: state.albums.albumsData,
-  loading: state.albums.loading,
-  error: state.albums.error
-});
+const mapStateToProps = state => {
+  console.log('state: ', state);
+
+  return {
+    albumsData: state.albums.albumsData,
+    loading: state.albums.loading,
+    error: state.albums.error
+  };
+};
 
 export default connect(
   mapStateToProps,
