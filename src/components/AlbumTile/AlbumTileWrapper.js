@@ -13,6 +13,8 @@ const AlbumTileWrapper = styled.div`
     align-self: center;
     text-align: center;
     margin: 0 auto;
+    font-weight: bold;
+    font-size: 2rem;
   }
 `;
 

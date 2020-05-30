@@ -8,7 +8,8 @@ import store from './redux/store';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Components
-import Albums from './pages/Albums';
+import Albums from './pages/albums';
+import AlbumCatalogue from './pages/album-catalogue';
 
 function App() {
   return (
@@ -16,8 +17,11 @@ function App() {
       <div className='site-wrapper'>
         <Router>
           <Switch>
-            <Route path='/'>
+            <Route path='/' exact>
               <Albums />
+            </Route>
+            <Route path='/album-catalogue'>
+              <AlbumCatalogue />
             </Route>
           </Switch>
         </Router>

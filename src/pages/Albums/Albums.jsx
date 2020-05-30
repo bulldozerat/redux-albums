@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 // Other
 import { uid } from 'react-uid';
+import { Link } from 'react-router-dom';
 
 // Store
 import { connect } from 'react-redux';
@@ -28,7 +29,11 @@ const Albums = ({ albumsData, error, loading, fetchAlbumsCall }) => {
       <div className='album-tiles-wrapper'>
         {albumsData &&
           Object.keys(albumsData).map(albumNumber => {
-            return <AlbumTile tileNumber={albumNumber} key={uid(albumsData[albumNumber])} />;
+            return (
+              <Link to={`/album-catalogue?albumNumber=${albumNumber}`} key={uid(albumsData[albumNumber])}>
+                <AlbumTile tileNumber={albumNumber} />
+              </Link>
+            );
           })}
       </div>
     </AlbumsWrapper>
