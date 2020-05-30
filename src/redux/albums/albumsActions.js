@@ -1,4 +1,4 @@
-import { FETCH_ALBUMS_BEGIN, FETCH_ALBUMS_SUCCESS, FETCH_ALBUMS_FAILURE } from './albumsTypes';
+import { FETCH_ALBUMS_BEGIN, FETCH_ALBUMS_SUCCESS, FETCH_ALBUMS_FAILURE, CHANGE_SELECTED_ALBUM } from './albumsTypes';
 import { normaliseAlbumsData } from '../../util/helperFunctions';
 
 export const fetchAlbums = () => async dispatch => {
@@ -26,3 +26,10 @@ export const fetchAlbumsFailure = error => ({
   type: FETCH_ALBUMS_FAILURE,
   payload: error
 });
+
+export const changeSelectedAlbum = albumId => {
+  return {
+    type: CHANGE_SELECTED_ALBUM,
+    payload: albumId
+  };
+};

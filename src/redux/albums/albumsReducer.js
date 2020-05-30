@@ -1,9 +1,10 @@
-import { FETCH_ALBUMS_BEGIN, FETCH_ALBUMS_SUCCESS, FETCH_ALBUMS_FAILURE } from './albumsTypes';
+import { FETCH_ALBUMS_BEGIN, FETCH_ALBUMS_SUCCESS, FETCH_ALBUMS_FAILURE, CHANGE_SELECTED_ALBUM } from './albumsTypes';
 
 const initialState = {
   albumsData: [],
   loading: false,
-  error: null
+  error: null,
+  selectedAlbum: null
 };
 
 const albumsReducer = (state = initialState, action) => {
@@ -28,6 +29,12 @@ const albumsReducer = (state = initialState, action) => {
         loading: false,
         error: action.payload.error,
         albumsData: []
+      };
+
+    case CHANGE_SELECTED_ALBUM:
+      return {
+        ...state,
+        selectedAlbum: action.payload
       };
 
     default:

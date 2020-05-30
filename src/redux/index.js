@@ -1,1 +1,7 @@
-export { fetchAlbums, fetchAlbumsBegin, fetchAlbumsSuccess, fetchAlbumsFailure } from './albums/albumsActions';
+export {
+  fetchAlbums,
+  fetchAlbumsBegin,
+  fetchAlbumsSuccess,
+  fetchAlbumsFailure,
+  changeSelectedAlbum
+} from './albums/albumsActions';
