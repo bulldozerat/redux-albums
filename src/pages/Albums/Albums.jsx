@@ -16,6 +16,7 @@ const Albums = ({ albumsData, error, loading, fetchAlbumsCall, changeSelectedAlb
   useEffect(() => {
     // Fetch only on first load
     if (!Object.keys(albumsData).length) fetchAlbumsCall();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (error) return <div>Error!</div>;

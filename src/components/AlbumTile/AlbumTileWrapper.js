@@ -3,11 +3,10 @@ import styled from '@emotion/styled';
 const AlbumTileWrapper = styled.div`
   display: flex;
   flex-grow: 1;
-  margin: 1rem;
-  width: 20rem;
-  height: 30rem;
-  background: #${Math.floor(Math.random() * 16777215).toString(16)};
-  color: #fff;
+  background: #ffcc01;
+  color: #d2002e;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
   .title-content {
     align-self: center;
