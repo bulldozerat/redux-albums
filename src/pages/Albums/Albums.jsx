@@ -1,8 +1,15 @@
 import React, { useEffect } from 'react';
 
+// Other
+import { uid } from 'react-uid';
+
 // Store
 import { connect } from 'react-redux';
 import { fetchAlbums } from '../../redux';
+
+// Components
+import AlbumTile from '../../components/AlbumTile';
+import AlbumsWrapper from './AlbumsWrapper';
 
 const Albums = ({ albumsData, error, loading, fetchAlbumsCall }) => {
   useEffect(
@@ -16,15 +23,15 @@ const Albums = ({ albumsData, error, loading, fetchAlbumsCall }) => {
   if (loading) return <div>Loading...!</div>;
 
   return (
-    <>
-      <h1>All albums</h1>
-      {console.log('albumsData: ', albumsData)}
-      {albumsData &&
-        Object.keys(albumsData).map(albumNumber => {
-          console.log(albumsData[albumNumber]);
-          return <div>Album Number {albumNumber}</div>;
-        })}
-    </>
+    <AlbumsWrapper>
+      <h1 className='page-title'>All albums</h1>
+      <div className='album-tiles-wrapper'>
+        {albumsData &&
+          Object.keys(albumsData).map(albumNumber => {
+            return <AlbumTile tileNumber={albumNumber} key={uid(albumsData[albumNumber])} />;
+          })}
+      </div>
+    </AlbumsWrapper>
   );
 };
 
@@ -34,15 +41,11 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const mapStateToProps = state => {
-  console.log('state: ', state);
-
-  return {
-    albumsData: state.albums.albumsData,
-    loading: state.albums.loading,
-    error: state.albums.error
-  };
-};
+const mapStateToProps = state => ({
+  albumsData: state.albums.albumsData,
+  loading: state.albums.loading,
+  error: state.albums.error
+});
 
 export default connect(
   mapStateToProps,
