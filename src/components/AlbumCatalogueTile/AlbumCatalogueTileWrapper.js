@@ -8,7 +8,8 @@ const AlbumCatalogueTileWrapper = styled.div`
   margin: 1rem;
   padding: 1rem;
   width: 20rem;
-  height: 30rem;
+  max-width: 33%;
+  min-height: 30rem;
   background: #ffcc01;
   color: #d2002e;
   img {

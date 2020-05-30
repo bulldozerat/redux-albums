@@ -8,7 +8,7 @@ const AlbumsWrapper = styled.div`
       margin: 1rem;
       flex-grow: 1;
       width: 20rem;
-      height: 30rem;
+      min-height: 30rem;
       text-decoration: none;
     }
   }

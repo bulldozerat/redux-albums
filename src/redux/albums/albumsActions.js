@@ -3,7 +3,8 @@ import {
   FETCH_ALBUMS_SUCCESS,
   FETCH_ALBUMS_FAILURE,
   CHANGE_SELECTED_ALBUM,
-  ADD_TO_FAVOURITES
+  ADD_TO_FAVOURITES,
+  REMOVE_FROM_FAVOURITES
 } from './albumsTypes';
 import { normaliseAlbumsData } from '../../util/helperFunctions';
 
@@ -44,5 +45,12 @@ export const addToFavourites = album => {
   return {
     type: ADD_TO_FAVOURITES,
     payload: album
+  };
+};
+
+export const removeFromFavourites = albumId => {
+  return {
+    type: REMOVE_FROM_FAVOURITES,
+    payload: albumId
   };
 };

@@ -3,7 +3,8 @@ import {
   FETCH_ALBUMS_SUCCESS,
   FETCH_ALBUMS_FAILURE,
   CHANGE_SELECTED_ALBUM,
-  ADD_TO_FAVOURITES
+  ADD_TO_FAVOURITES,
+  REMOVE_FROM_FAVOURITES
 } from './albumsTypes';
 
 const initialState = {
@@ -48,6 +49,12 @@ const albumsReducer = (state = initialState, action) => {
       return {
         ...state,
         favouritesData: [...state.favouritesData, action.payload]
+      };
+
+    case REMOVE_FROM_FAVOURITES:
+      return {
+        ...state,
+        favouritesData: state.favouritesData.filter(favourite => favourite.id !== action.payload)
       };
 
     default:

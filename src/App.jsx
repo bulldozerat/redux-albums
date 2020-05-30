@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // Components
 import Albums from './pages/albums';
 import AlbumCatalogue from './pages/album-catalogue';
+import FavouriteCatalogue from './pages/favourite-catalogue';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
             </Route>
             <Route path='/album-catalogue'>
               <AlbumCatalogue />
+            </Route>
+            <Route path='/favourite-catalogue'>
+              <FavouriteCatalogue />
             </Route>
           </Switch>
         </Router>

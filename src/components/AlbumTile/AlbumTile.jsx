@@ -3,12 +3,18 @@ import React from 'react';
 // Components
 import AlbumTileWrapper from './AlbumTileWrapper';
 
-const AlbumTile = ({ tileNumber }) => {
+const AlbumTile = ({ tileNumber, isFavourite }) => {
   return (
     <AlbumTileWrapper>
       <div className='title-content'>
-        <div>Tile number: </div>
-        <div>{tileNumber}</div>
+        {!isFavourite ? (
+          <>
+            <div>Tile number: </div>
+            <div>{tileNumber}</div>
+          </>
+        ) : (
+          <div>Check your favourite album</div>
+        )}
       </div>
     </AlbumTileWrapper>
   );

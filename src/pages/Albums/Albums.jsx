@@ -12,7 +12,7 @@ import { fetchAlbums, changeSelectedAlbum } from '../../redux';
 import AlbumTile from '../../components/AlbumTile';
 import AlbumsWrapper from './AlbumsWrapper';
 
-const Albums = ({ albumsData, error, loading, fetchAlbumsCall, changeSelectedAlbumCall }) => {
+const Albums = ({ albumsData, error, loading, fetchAlbumsCall, changeSelectedAlbumCall, favouritesData }) => {
   useEffect(() => {
     // Fetch only on first load
     if (!Object.keys(albumsData).length) fetchAlbumsCall();
@@ -24,6 +24,16 @@ const Albums = ({ albumsData, error, loading, fetchAlbumsCall, changeSelectedAlb
 
   return (
     <AlbumsWrapper>
+      {!!favouritesData.length && (
+        <>
+          <h1 className='page-title'>Favourite album</h1>
+          <div className='album-tiles-wrapper'>
+            <Link to='/favourite-catalogue'>
+              <AlbumTile isFavourite />
+            </Link>
+          </div>
+        </>
+      )}
       <h1 className='page-title'>All albums</h1>
       <div className='album-tiles-wrapper'>
         {albumsData &&
@@ -53,7 +63,8 @@ const mapDispatchToProps = dispatch => {
 const mapStateToProps = state => ({
   albumsData: state.albums.albumsData,
   loading: state.albums.loading,
-  error: state.albums.error
+  error: state.albums.error,
+  favouritesData: state.albums.favouritesData
 });
 
 export default connect(

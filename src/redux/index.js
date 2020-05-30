@@ -4,5 +4,6 @@ export {
   fetchAlbumsSuccess,
   fetchAlbumsFailure,
   changeSelectedAlbum,
-  addToFavourites
+  addToFavourites,
+  removeFromFavourites
 } from './albums/albumsActions';
