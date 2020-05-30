@@ -19,7 +19,9 @@ const AlbumCatalogue = ({ selectedAlbum, albumsData }) => {
   return (
     <AlbumCatalogueWrapper>
       <h1 className='page-title'>Album catalogue</h1>
-      <Link to='/'>Back to all albums</Link>
+      <Link to='/' className='back-btn'>
+        Back to all albums
+      </Link>
       <div className='album-catalogue-section-wrapper'>
         {albumsData[selectedAlbum].map(album => {
           const { title, url, thumbnailUrl } = album;
