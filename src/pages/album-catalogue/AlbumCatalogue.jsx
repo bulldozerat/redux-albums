@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Other
-import { uid, useUID } from 'react-uid';
+import { uid } from 'react-uid';
 import { Link, Redirect } from 'react-router-dom';
 
 // Store
@@ -24,8 +24,7 @@ const AlbumCatalogue = ({ selectedAlbum, albumsData }) => {
       </Link>
       <div className='album-catalogue-section-wrapper'>
         {albumsData[selectedAlbum].map(album => {
-          const { title, url, thumbnailUrl } = album;
-          return <AlbumCatalogueTile title={title} url={url} thumbnailUrl={thumbnailUrl} key={uid(album)} />;
+          return <AlbumCatalogueTile album={album} key={uid(album)} />;
         })}
       </div>
     </AlbumCatalogueWrapper>
