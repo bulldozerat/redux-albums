@@ -29,6 +29,7 @@ body {
 .back-btn {
   position: sticky;
   top: 2rem;
+  z-index: 3;
   display: inline-block;
   margin: 0 0 2rem 1rem;
   padding: 1rem;

@@ -18,7 +18,7 @@ const FavouriteCatalogue = ({ favouritesData }) => {
 
   return (
     <FavouriteCatalogueWrapper>
-      <h1 className='page-title'>test</h1>
+      <h1 className='page-title'>Favourites</h1>
       <Link to='/' className='back-btn'>
         Back to all albums
       </Link>
