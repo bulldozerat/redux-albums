@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 // Other
 import { uid } from 'react-uid';
 import { Link } from 'react-router-dom';
+import { ReactComponent as Loading } from '../../assets/images/loader.svg';
 
 // Store
 import { connect } from 'react-redux';
@@ -20,7 +21,7 @@ const Albums = ({ albumsData, error, loading, fetchAlbumsCall, changeSelectedAlb
   }, []);
 
   if (error) return <div>Error!</div>;
-  if (loading) return <div>Loading...!</div>;
+  if (loading) return <Loading />;
 
   return (
     <AlbumsWrapper>
