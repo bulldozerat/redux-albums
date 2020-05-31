@@ -11,8 +11,9 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 const persistConfig = {
-  key: 'albumsData',
-  storage
+  key: 'root',
+  storage,
+  blacklist: ['albums']
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
