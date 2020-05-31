@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Other
 import { uid } from 'react-uid';
@@ -29,6 +30,11 @@ const AlbumCatalogue = ({ selectedAlbum, albumsData }) => {
       </div>
     </AlbumCatalogueWrapper>
   );
+};
+
+AlbumCatalogue.propTypes = {
+  selectedAlbum: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  albumsData: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
 };
 
 const mapStateToProps = state => ({

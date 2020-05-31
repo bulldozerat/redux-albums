@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Other
 import { uid } from 'react-uid';
@@ -30,6 +31,19 @@ const FavouriteCatalogue = ({ favouritesData }) => {
     </FavouriteCatalogueWrapper>
   );
 };
+
+FavouriteCatalogue.propTypes = {
+  favouritesData: PropTypes.arrayOf(
+    PropTypes.shape({
+      albumId: PropTypes.number,
+      id: PropTypes.number,
+      thumbnailUrl: PropTypes.string,
+      title: PropTypes.string,
+      url: PropTypes.string
+    })
+  )
+};
+
 const mapStateToProps = state => ({
   favouritesData: state.albums.favouritesData
 });

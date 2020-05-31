@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 // Other
 import { uid } from 'react-uid';
@@ -14,11 +15,13 @@ import AlbumTile from '../../components/AlbumTile';
 import AlbumsWrapper from './AlbumsWrapper';
 
 const Albums = ({ albumsData, error, loading, fetchAlbumsCall, changeSelectedAlbumCall, favouritesData }) => {
-  useEffect(() => {
-    // Fetch only on first load
-    if (!Object.keys(albumsData).length) fetchAlbumsCall();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  useEffect(
+    () => {
+      // Fetch only on first load
+      if (!Object.keys(albumsData).length) fetchAlbumsCall();
+    },
+    [fetchAlbumsCall, albumsData]
+  );
 
   if (error) return <div>Error!</div>;
   if (loading) return <Loading />;
@@ -52,6 +55,23 @@ const Albums = ({ albumsData, error, loading, fetchAlbumsCall, changeSelectedAlb
       </div>
     </AlbumsWrapper>
   );
+};
+
+Albums.propTypes = {
+  albumsData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  error: PropTypes.bool,
+  loading: PropTypes.bool,
+  fetchAlbumsCall: PropTypes.func,
+  changeSelectedAlbumCall: PropTypes.func,
+  favouritesData: PropTypes.arrayOf(
+    PropTypes.shape({
+      albumId: PropTypes.number,
+      id: PropTypes.number,
+      thumbnailUrl: PropTypes.string,
+      title: PropTypes.string,
+      url: PropTypes.string
+    })
+  )
 };
 
 const mapDispatchToProps = dispatch => {

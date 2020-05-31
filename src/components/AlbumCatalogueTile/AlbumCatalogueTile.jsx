@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Store
 import { connect } from 'react-redux';
@@ -44,6 +45,28 @@ const AlbumCatalogueTile = ({
       )}
     </AlbumCatalogueTileWrapper>
   );
+};
+
+AlbumCatalogueTile.propTypes = {
+  album: PropTypes.PropTypes.shape({
+    albumId: PropTypes.number,
+    id: PropTypes.number,
+    thumbnailUrl: PropTypes.string,
+    title: PropTypes.string,
+    url: PropTypes.string
+  }),
+  addToFavouritesCall: PropTypes.func,
+  isFavouriteTile: PropTypes.bool,
+  removeFromFavouritesCall: PropTypes.func,
+  favouritesData: PropTypes.arrayOf(
+    PropTypes.shape({
+      albumId: PropTypes.number,
+      id: PropTypes.number,
+      thumbnailUrl: PropTypes.string,
+      title: PropTypes.string,
+      url: PropTypes.string
+    })
+  )
 };
 
 const mapDispatchToProps = dispatch => {

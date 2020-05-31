@@ -11,7 +11,7 @@ const initialState = {
   albumsData: [],
   favouritesData: [],
   loading: false,
-  error: null,
+  error: false,
   selectedAlbum: null
 };
 
@@ -21,7 +21,7 @@ const albumsReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
-        error: null
+        error: false
       };
 
     case FETCH_ALBUMS_SUCCESS:
