@@ -29,6 +29,10 @@ const AlbumCatalogueTile = ({
     removeFromFavouritesCall(id);
   };
 
+  const checkIfInFavourites = () => {
+    return favouritesData.find(favouriteAlbum => favouriteAlbum.id === id);
+  };
+
   return (
     <AlbumCatalogueTileWrapper>
       <img src={url} alt='' className='image-big' />
@@ -40,7 +44,7 @@ const AlbumCatalogueTile = ({
         </div>
       ) : (
         <div className='add-favourite' onClick={addToFavourites}>
-          Add in favourites
+          {checkIfInFavourites() ? 'Already in favourites' : 'Add in favourites'}
         </div>
       )}
     </AlbumCatalogueTileWrapper>
